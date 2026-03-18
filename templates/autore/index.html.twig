@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Autore index{% endblock %}
+
+{% block body %}
+    
+    {% import "macros/macro_navbar.html.twig" as form %}
+    {{form.navbar(activeAutori: 'active')}}
+
+    <h1 class="my-4 ms-1">Autore index</h1>
+
+    <twig:TabellaAutore/>
+
+    
+{% endblock %}

@@ -1,0 +1,9 @@
+{# <div> #}
+<div {{ attributes }}>
+<input type="number" data-model="debounce(5000)|max">
+    <strong>{{ this.randomNumber }}</strong>
+
+    <button
+        data-action="live#$render"
+    >Generate a new number!</button>
+</div>

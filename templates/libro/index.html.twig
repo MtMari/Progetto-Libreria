@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Libro index{% endblock %}
+
+{% block body %}
+
+    {% import "macros/macro_navbar.html.twig" as form %}
+    {{form.navbar(activeLibri: 'active')}}
+    
+    <h1 class="my-4 ms-1">Libro index</h1>
+
+    <twig:CercaLibro difficoltas="{{difficoltas}}"/>
+    
+{% endblock %}

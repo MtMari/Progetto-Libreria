@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Libro{% endblock %}
+
+{% block body %}
+
+    {% import "macros/macro_navbar.html.twig" as form %}
+    {{form.navbar}}
+
+    <h1 class="ms-2">Libro</h1>
+        {% if app.user %}
+            <div class="d-flex p-1">
+                <a href="{{ path('app_libro_edit', {'id': libro.id}) }}" class="btn btn-primary bg-gradient me-2 mb-2"><i class="bi bi-pencil-square me-1" style="font-size: 1.1rem;"></i>Modifica</a>
+                {{ include('libro/_delete_form.html.twig') }}
+            </div>
+        {% endif %}
+    <div class="w-25">
+        <table class="table">
+            <tbody>
+                {# <tr>
+                    <th class="border-end border-bottom border-dark table-primary">Id</th>
+                    <td class="table-light">{{ libro.id }}</td>
+                </tr> #}
+                <tr>
+                    <th class="border-end border-bottom border-dark table-primary">Titolo</th>
+                    <td>{{ libro.titolo }}</td>
+                </tr>
+                <tr>
+                    <th class="border-end border-bottom border-dark table-primary">Autore</th>
+                    <td class="table-light">
+                        {% for data in autoreLibro %}
+                            <li class="clean">{{data.autore.nomeAutore}} {{data.autore.cognomeAutore}}</li>
+                        {% endfor %}
+                    </td>
+                </tr>
+                <tr>
+                    <th class="border-end border-bottom border-dark table-primary">Pagine</th>
+                    <td>{{ libro.pagine }}</td>
+                </tr>
+                <tr>
+                    <th class="border-end border-bottom border-dark table-primary">Difficoltà</th>
+                    <td class="table-light">{{ difficolta }}</td>
+                </tr>
+                <tr>
+                    <th class="border-end border-dark table-primary">Descrizione</th>
+                    <td>{{ libro.descrizione }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

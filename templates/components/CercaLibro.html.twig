@@ -1,0 +1,69 @@
+<div{{ attributes }}>
+    <input
+        type="search"
+        name="query"
+        {# value="{{ query }}" #}
+        data-model=query
+        {# data-action="live#update" #}
+        placeholder="Ricerca per Titolo"
+        class="ms-1"
+    >
+    
+    {% if app.user %}
+        <a href="{{ path('app_libro_new') }}" class="btn btn-primary bg-gradient ms-2"><i class="bi bi-plus-circle-fill me-2"></i>Aggiungi Libro</a>
+    {% endif %}
+
+    <div class="table-responsive mt-3">
+        <table class="table table align-middle border-bottom table-hover">
+            <thead>
+                <tr class="table-secondary">
+                    {% if app.user %}
+                        <th>ID</th>
+                    {% endif %}
+                    <th>TITOLO</th>
+                    <th>AUTORE</th>
+                    <th>DIFFICOLTA'</th>
+                    <th>DESCRIZIONE</th>
+                    <th>ACTIONS</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                {% for libro in this.libros %}
+                    <tr class="border-bottom">
+                        {% if app.user %}
+                            <td>{{ libro.id }}</td>
+                        {% endif %}
+                        <td>{{ libro.titolo }}</td>
+                        <td>
+                            {% for autoreLibro in this.autoreLibros|sort((a, b) => a.autore.nomeAutore <=> b.autore.nomeAutore) %}
+                                    {% if autoreLibro.libro.id is same as (libro.id) %}
+                                        {{ [autoreLibro.autore.nomeAutore, autoreLibro.autore.cognomeAutore]|join(' ')}}
+                                        {{ '<br>'|raw}}                                    
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                        <td>
+                            {% for id, difficolta in difficoltas %}
+                                {% if id is same as (libro.id) %}
+                                    {{ difficolta }}
+                                {% endif %}
+                                
+                            {% endfor %}
+                        </td>
+                        <td>{{ libro.descrizione }}</td>
+                        <td>
+                            <a href="{{ path('app_libro_show', {'id': libro.id}) }}" class="me-2"><i class="bi bi-info-circle-fill" style="font-size: 1.5rem;"></i></a>
+                            {% if app.user %}
+                                <a href="{{ path('app_libro_edit', {'id': libro.id}) }}" class="ms-2 text-muted"><i class="bi bi-pencil-square" style="font-size: 1.2rem;"></i></a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="6" class="text-center">Nessun dato</td>
+                    </tr> 
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>

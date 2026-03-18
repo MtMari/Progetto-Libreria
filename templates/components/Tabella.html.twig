@@ -1,0 +1,20 @@
+<div{{ attributes }}>
+    <tr class="border-bottom">
+        {% if app.user %}
+            <twig:RigaTabella dati="{{ id }}"/>
+        {% endif %}
+        <twig:RigaTabella dati="{{ nome }}"/>
+        <twig:RigaTabella dati="{{ cognome }}"/>
+        <twig:RigaTabella dati="{{ data ? data|date('d-m-Y') : '' }}"/>
+        {% if app.user %}
+            <twig:RigaTabella dati="{{ disponibilita ? 'Sì' : 'No' }}"/>
+            <twig:RigaTabella dati="{{ qualitaScrittura ? qualitaScrittura : 'Dato non disponibilie' }}"/>
+        {% endif %}
+        <td>
+            <a href="{{ path('app_autore_show', {'id': id}) }}" class="me-2"><i class="bi bi-info-circle-fill" style="font-size: 1.5rem;"></i></a>
+            {% if app.user %}
+                <a href="{{ path('app_autore_edit', {'id': id}) }}" class="ms-2 text-muted"><i class="bi bi-pencil-square" style="font-size: 1.3rem;"></i></a>
+            {% endif %}
+        </td>
+    </tr>
+</div>

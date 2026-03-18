@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% trans_default_domain 'app' %}
+
+{% block title %}Edit Libro{% endblock %}
+
+{% block body %}
+
+    {% import "macros/macro_navbar.html.twig" as form %}
+    {{form.navbar}}
+
+    <h1 class="ms-2">Modifica Libro</h1>
+
+    <ul class="nav nav-tabs mb-3">
+        <li class="nav-item">
+            <a href="{{ path('app_libro_show', {'id': libro.id}) }}" class="nav-link">Dettagli Libro</a>
+        </li>
+    </ul>
+
+    {{ include('libro/_form.html.twig', {'button_label': 'Salva modifiche'}) }}
+    
+    {{ include('libro/_delete_form.html.twig') }}
+{% endblock %}

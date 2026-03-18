@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% trans_default_domain 'app' %}
+
+{% block title %}New Libro{% endblock %}
+
+{% block body %}
+    {% import "macros/macro_navbar.html.twig" as form %}
+    {{form.navbar}}
+
+    <h1 class="ms-2">Aggiungi Libro</h1>
+
+    {{ include('libro/_form.html.twig') }}
+{% endblock %}

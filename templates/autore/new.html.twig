@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Autore{% endblock %}
+
+{% block body %}
+
+    {% import "macros/macro_navbar.html.twig" as form %}
+    {{form.navbar}}
+
+    <h1 class="ms-2">Aggiungi Autore</h1>
+
+    {{ include('autore/_form.html.twig') }}
+{% endblock %}

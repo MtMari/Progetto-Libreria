@@ -1,0 +1,51 @@
+/* body {
+    font-family: Arial, Helvetica, sans-serif;
+} */
+
+/* tabelle */
+table, th, td {
+    border: none;
+}
+
+td, th {
+    padding: 7px;
+    text-align: center;
+}
+
+.table-hover tbody tr:hover td {
+    background: rgb(255, 255, 255);
+}
+
+/* font */
+
+.clean {
+    list-style-type: none;
+}
+
+.clean-a {
+    text-decoration: none;
+    color: black;
+}
+
+/* CSS VARIABLE FOR BOOTSTRAP */
+/* body {
+    color: var(--bs-blue);
+} */
+
+.in-linea{
+    display: inline;
+}
+
+.small-text {
+    font-size: smaller;
+}
+
+/* display */
+
+.not-hidden {
+    display: inline-block;
+}
+
+.w-10 {
+    width: 10%;
+}

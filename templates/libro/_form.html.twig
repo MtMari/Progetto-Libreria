@@ -1,0 +1,18 @@
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+{# {% trans_default_domain 'app' %} #}
+
+<div class="w-25 ms-1">
+    {{ form_start(form) }}
+        {{form_errors(form)}}
+        {{ form_row(form.titolo, attr: {'class': 'mb-2'}) }}
+        {{form_row(form.autoreLibros, { 'attr': {'data-index': (form.autoreLibros|length > 0 ? form.autoreLibros|last.vars.name + 1 : 0)}})}}
+        <span
+            class="autoreLibros"
+            data-index="{{ form.autoreLibros|length > 0 ? form.autoreLibros|last.vars.name + 1 : 0 }}"
+        ></span>
+        <button type="button" class="add_item_link btn btn-outline-primary btn-sm mb-3" data-collection-holder-id="{{ form.autoreLibros.vars.id }}"><i class="bi bi-person-plus-fill me-1"></i>Aggiungi Autore</button>
+        {{ form_row(form.pagine) }}
+        {{ form_row(form.descrizione)}}
+        <button class="btn btn-primary bg-gradient mb-3">{{ button_label|default('Salva') }}</button>
+    {{ form_end(form) }}
+</div>

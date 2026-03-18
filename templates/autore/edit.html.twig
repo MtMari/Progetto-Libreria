@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Autore{% endblock %}
+
+{% block body %}
+
+    {% import "macros/macro_navbar.html.twig" as form %}
+    {{form.navbar}}
+    
+    <h1 class="ms-2">Modifica Autore</h1>
+
+    <ul class="nav nav-tabs mb-3">
+        <li class="nav-item">
+            <a href="{{ path('app_autore_show', {'id': autore.id}) }}" class="nav-link">Dettagli Autore</a>
+        </li>
+    </ul>
+    
+
+    {{ include('autore/_form.html.twig', {'button_label': 'Salva modifiche'}) }}    
+
+    {{ include('autore/_delete_form.html.twig') }}
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+<div class="w-25 ms-1">
+    {{ form_start(form) }}
+        {{ form_row(form.nomeAutore) }}
+        {{ form_row(form.cognomeAutore) }}
+        {{ form_row(form.dataNascita) }}
+        {{ form_row(form.qualitaScrittura) }}
+        {{ form_row(form.disponibilita) }}
+        <button class="btn btn-primary bg-gradient my-3">{{ button_label|default('Salva') }}</button>
+    {{ form_end(form) }}
+</div>

@@ -1,0 +1,50 @@
+<div{{ attributes }}>
+    <input
+        type="search"
+        name="query"
+        {# value="{{ query }}" #}
+        data-model=query
+        {# data-action="live#update" #}
+        placeholder="Cerca Autore"
+        class="ms-1"
+    >
+    {% if app.user %}
+        <a href="{{ path('app_autore_new') }}" class="ms-2 btn btn-primary bg-gradient"><i class="bi bi-plus-circle-fill me-2"></i>Aggiungi Autore</a>
+    {% endif %}
+
+    <div class="table-responsive mt-3">
+        <table class="table table align-middle border-bottom table-hover">
+            <thead>
+                <tr class="table-secondary">
+                    {% if app.user %}
+                        <th>ID</th>
+                    {% endif %}
+                    <th>NOME AUTORE</th>
+                    <th>COGNOME AUTORE</th>
+                    <th>DATA NASCITA</th>
+                    {% if app.user %}
+                        <th>DISPONIBILE</th>
+                        <th>PUNTEGGIO</th>
+                    {% endif %}
+                    <th>ACTIONS</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                {% for autore in this.autores %}
+                    <twig:Tabella
+                        id="{{ autore.id }}"
+                        nome="{{ autore.nomeAutore }}"
+                        cognome="{{ autore.cognomeAutore }}"
+                        data="{{ autore.dataNascita }}"
+                        disponibilita="{{ autore.disponibilita }}"
+                        qualitaScrittura="{{ autore.qualitaScrittura }}"
+                    />
+                {% else %}
+                    <tr>
+                        <td colspan="7" class="text-center">Nessun dato</td>
+                    </tr> 
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>

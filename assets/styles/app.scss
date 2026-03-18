@@ -1,0 +1,37 @@
+// add your SASS styles in this file
+
+// Source - https://stackoverflow.com/a
+// Posted by Carol Skelly, modified by community. See post 'Timeline' for change history
+// Retrieved 2025-11-25, License - CC BY-SA 4.0
+
+/* custom.scss */    
+
+/* import the necessary Bootstrap files */
+
+/* -------begin customization-------- */
+
+
+/* simply assign the value */ 
+// $body-bg: #c75f5f;
+
+/* use a variable to override primary */
+// $theme-colors: (
+//   primary: $body-bg
+// );
+
+// $theme-colors: (
+//   "primary": #7000d9,
+//   "danger": #f21f1f
+// );
+
+/* -------end customization-------- */  
+
+/* finally, import Bootstrap to set the changes! */
+@import '../../vendor/twbs/bootstrap/scss/bootstrap';
+/* 
+    # Install Sass globally
+    >>> npm install -g sass
+
+    # Watch your custom Sass for changes and compile it to CSS
+    >>> sass --watch ./scss/custom.scss ./css/custom.css
+*/
