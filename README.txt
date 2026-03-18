@@ -1,4 +1,4 @@
-# Progetto Libreria
+# Progetto Libreria - revamp in progress
 
 ###
 
