@@ -31,3 +31,9 @@
 .w-10 {
     width: 10%;
 }
+
+/* immagini */
+
+.bkg-biblioteca {
+    background-image: url('../images/book-wall.jpg');
+}

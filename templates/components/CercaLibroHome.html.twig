@@ -2,12 +2,14 @@
     <input
         type="search"
         data-model="debounce(100)|query"
+        placeholder="Ricerca per Titolo"
+        class="w-100"
     />
 
     {% if this.query is not empty %}
-        <div class="d-flex">
+        <div class="d-flex flex-wrap justify-content-evenly">
             {% for libro in this.libros %}                    
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 18rem; mt-2">
                     <div class="card-body">
                         <h5 class="card-title">{{ libro.titolo }}</h5>
                         <img src="{{ asset('images/book-cover.png') }}" class="card-img-top w-25" alt="book cover">
