@@ -30,6 +30,19 @@ class LibroRepository extends ServiceEntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    public function findByQueryHome( string $query ): array
+    {
+        return $this->createQueryBuilder('libro')
+            ->join('App\Entity\AutoreLibro', 'al', Expr\Join::ON, 'libro.id = al.libro')
+            ->join('App\Entity\Autore', 'a', Expr\Join::ON, 'al.autore=a.id')
+            ->where("lower(libro.titolo) LIKE lower(:query)")
+            ->setParameter('query', '%' . $query . '%')
+            ->addOrderBy('libro.titolo', Criteria::ASC)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    
     public function findByQuery( string $query ): array
     {
         if(empty($query))

@@ -1,0 +1,25 @@
+<div{{ attributes }}>
+    <input
+        type="search"
+        data-model="debounce(100)|query"
+    />
+
+    {% if this.query is not empty %}
+        <div class="d-flex">
+            {% for libro in this.libros %}                    
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ libro.titolo }}</h5>
+                        <img src="{{ asset('images/book-cover.png') }}" class="card-img-top w-25" alt="book cover">
+                        <p class="card-text">
+                            {{ libro.descrizione }}
+                        </p>
+                        <a href="{{ path('app_libro_show', {'id': libro.id}) }}" class="me-2 btn btn-primary bg-gradient">Dettagli</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    {% endif %}
+
+</div>
