@@ -25,7 +25,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
-#[Route('/libro')]
+#[Route('/')]
 #[WithMonologChannel('libro')]
 // #[AutoconfigureTag('libro.controller')]
 final class LibroController extends AbstractController
