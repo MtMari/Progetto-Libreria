@@ -37,3 +37,13 @@
 .bkg-biblioteca {
     background-image: url('../images/book-wall.jpg');
 }
+
+#footer {
+    height: 200px;
+    margin: 0px;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+}
