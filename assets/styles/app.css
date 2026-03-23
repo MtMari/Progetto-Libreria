@@ -1,3 +1,9 @@
+/* generiche */
+
+body {
+    margin: 0;
+}
+
 /* font */
 
 .clean {
@@ -22,6 +28,7 @@
     font-size: smaller;
 }
 
+
 /* display */
 
 .not-hidden {
@@ -38,12 +45,17 @@
     background-image: url('../images/book-wall.jpg');
 }
 
-#footer {
-    /* height: 200px; */
-    margin: 0px;
-    /* width: 100%; */
+/* liste */
+
+#inline-list {
+    /* display: inline; */
+    list-style-type: none;
+    display: flex;
+}
+ul#inline-list > li {
+    margin: 0px 5px;
 }
 
-body {
-    margin: 0;
+.link-utili {
+    list-style-type: none;
 }
